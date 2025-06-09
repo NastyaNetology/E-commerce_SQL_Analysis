@@ -24,14 +24,11 @@ WITH valid_orders AS (
 SELECT COUNT(*) AS total_valid_purchases
 FROM valid_orders;
 
+### Answer: 
+![valid-purchases-result](diagrams/images/image.png)
 
 
-## Q1: How many valid purchases were made?
-
-**Answer:**  
-![valid-purchases-result](https://private-user-images.githubusercontent.com/133573220/453133096-cb7c3ad9-e2e3-4e55-acfb-37a5fe461d7e.png)
-
-- ✅ Total of **92,099** valid purchases  
+- ✅ Total of 92,099 valid purchases  
 - Based on:
   - `order_approved_at IS NOT NULL` **and** status in `approved`, `invoiced`, `processing`, `shipped`, `delivered`
   - OR status is `delivered` even if `order_approved_at IS NULL` (possible logging delay)
