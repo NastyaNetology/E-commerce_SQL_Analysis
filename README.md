@@ -1,10 +1,10 @@
-# 📊 ShopEasy E-commerce SQL Analysis
+# ShopEasy E-commerce SQL Analysis
 
 An end-to-end SQL case study analyzing customer behavior, sales trends, and delivery performance using the Olist Brazilian E-commerce dataset.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Business Objective](#business-objective)  
 - [Entity Relationship Diagram](#entity-relationship-diagram)  
@@ -15,18 +15,18 @@ An end-to-end SQL case study analyzing customer behavior, sales trends, and deli
 
 ---
 
-## 📌 Business Objective
+## Business Objective
 
 **ShopEasy**, an online retail platform, aims to enhance decision-making by analyzing key aspects of its e-commerce performance:
 
 - Customer behavior patterns  
 - Product popularity and delivery performance  
 - Customer retention and churn analysis  
-- Actionable insights for segmentation and loyalty strategies  
+- Actionable insights for segmentation and loyalty strategies
 
 ---
 
-## 🧩 Entity Relationship Diagram
+## Entity Relationship Diagram
 
 This project uses several interconnected tables. You can generate the ERD using [dbdiagram.io](https://dbdiagram.io) with the following tables:
 
@@ -42,9 +42,10 @@ This project uses several interconnected tables. You can generate the ERD using 
 
 ---
 
-## 📁 Dataset
+## Dataset
 
-The analysis uses the **Brazilian E-Commerce Public Dataset by Olist**.
+This is a Brazilian ecommerce public dataset of orders, the dataset has information of 100k orders made at multiple marketplaces in Brazil. 
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce.
 
 Download the dataset and load the following CSVs into your SQL environment:
 
@@ -57,7 +58,7 @@ Download the dataset and load the following CSVs into your SQL environment:
 
 ---
 
-## ❓ Case Study Questions
+## Case Study Questions
 
 Each question is addressed in an individual `.sql` file under the `/sql` directory.
 
@@ -70,13 +71,13 @@ Each question is addressed in an individual `.sql` file under the `/sql` directo
 
 ---
 
-## 💡 Solutions
+## Solutions
 
 Detailed SQL scripts for each question are provided in the `/sql` folder with comments explaining each step and logic used.
 
 ---
 
-## 🧠 Summary & Insights
+## Summary & Insights
 
 The analysis provides actionable insights into:
 
