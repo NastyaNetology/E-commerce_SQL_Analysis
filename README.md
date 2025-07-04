@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/44338368-570e-4ccb-8e30-252443a1dd2a)# Case Study: Food Delivery Platform – SQL Analysis
+# Case Study: Food Delivery Platform – SQL Analysis
 
 This case study analyzes real data from a food delivery platform (2022–2025).
 
