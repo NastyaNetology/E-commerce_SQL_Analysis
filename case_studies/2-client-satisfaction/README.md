@@ -16,10 +16,27 @@
 ## Q1: Which dishes receive the lowest and highest ratings?
 
 Relevant Table(s)
-orders_dishes_ratings
+order_dish_rates
 
 Step 1: Inspect the Columns
 
+```sql
 SELECT * 
-FROM orders_dishes_ratings 
+FROM order_dish_rates
 LIMIT 1;
+```
+
+Based on the structure of the table the relevant fields are:
+- id
+- rate
+- comment
+- dish_id
+- order_id
+- client_id
+- platform_id
+- created_at
+- updated_at
+
+
+
+
