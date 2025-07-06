@@ -84,10 +84,10 @@ LIMIT 5;
 ```
 
 Top 5 Lowest Rated Dishes (2024)
-
+![Top Rated Dishes](assets/lowest_dishes_2024.jpg)
 
 Top 5 Lowest Rated Dishes (2025)
-
+![Top Rated Dishes](assets/lowest_dishes_2025.jpg)
 
 ## Q2: What are the top complaints or claims raised by clients?
 
@@ -152,6 +152,9 @@ GROUP BY complaint_category
 ORDER BY total_complaints DESC;
 ```
 
+Top complaints or claims (2024-2025)
+
+![Top Rated Dishes](assets/complaint_category.jpg)
 
 ## Q2: Analyze the reasons for canceled orders
 
