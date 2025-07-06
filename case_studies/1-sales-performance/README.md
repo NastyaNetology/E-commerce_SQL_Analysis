@@ -101,6 +101,7 @@ ORDER BY year, month;
 
 Answer:
 
+
 Monthly Orders (2024)
 Year	Month	Total Orders
 2024	1	39,307
