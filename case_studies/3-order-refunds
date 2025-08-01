@@ -1,1 +1,5 @@
+First step is to inspect the structure of the key tables (orders, order_status, client_order).
 
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name='orders'
