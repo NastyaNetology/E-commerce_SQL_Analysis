@@ -3,3 +3,16 @@ First step is to inspect the structure of the key tables (orders, order_status, 
 SELECT column_name, data_type
 FROM information_schema.columns
 WHERE table_name='orders'
+
+
+To find actual foreign key relationships:
+SELECT 
+    tc.table_name, 
+    kcu.column_name
+FROM information_schema.table_constraints tc
+JOIN information_schema.key_column_usage kcu 
+    ON tc.constraint_name = kcu.constraint_name
+WHERE tc.constraint_type = 'FOREIGN KEY'
+  AND tc.constraint_schema = 'public'
+  AND kcu.ordinal_position IS NOT NULL
+  AND tc.constraint_name ILIKE '%order_cancel_type%';
