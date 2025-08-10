@@ -100,30 +100,32 @@ ORDER BY year, month;
 ```
 
 Answer:
-
-
 Monthly Orders (2024)
-Year	Month	Total Orders
-2024	1	39,307
-2024	2	40,177
-2024	3	40,593
-2024	4	35,847
-2024	5	38,656
-2024	6	31,508
-2024	7	29,492
-2024	8	32,523
-2024	9	35,995
-2024	10	40,606
-2024	11	47,755
-2024	12	40,364
+| Year | Month | Total Orders |
+| ---- | ----- | ------------ |
+| 2024 | 1     | 39,307       |
+| 2024 | 2     | 40,177       |
+| 2024 | 3     | 40,593       |
+| 2024 | 4     | 35,847       |
+| 2024 | 5     | 38,656       |
+| 2024 | 6     | 31,508       |
+| 2024 | 7     | 29,492       |
+| 2024 | 8     | 32,523       |
+| 2024 | 9     | 35,995       |
+| 2024 | 10    | 40,606       |
+| 2024 | 11    | 47,755       |
+| 2024 | 12    | 40,364       |
+
 Monthly Orders (2025)
-Year	Month	Total Orders
-2025	1	39,365
-2025	2	35,419
-2025	3	36,844
-2025	4	33,382
-2025	5	33,406
-2025	6	24,424
+| Year | Month | Total Orders |
+| ---- | ----- | ------------ |
+| 2025 | 1     | 39,365       |
+| 2025 | 2     | 35,419       |
+| 2025 | 3     | 36,844       |
+| 2025 | 4     | 33,382       |
+| 2025 | 5     | 33,406       |
+| 2025 | 6     | 24,424       |
+
 
 ## Q5: Order Frequency by Month (2024 & 2025 Separately)
 
@@ -142,19 +144,25 @@ ORDER BY year, month;
 ```
 
 Steps:
-COUNT(*) = total orders
-COUNT(DISTINCT client_id) = number of unique clients
-order_frequency = average number of orders per client in that month
-NULLIF(..., 0) protects against division by zero
+- COUNT(*) = total orders
+- COUNT(DISTINCT client_id) = number of unique clients
+- order_frequency = average number of orders per client in that month
+- NULLIF(..., 0) protects against division by zero
+
 Answer:
 
-Year	Total Orders	Unique Clients	Order Frequency
-2024	452,823	60,251	7.52
-2025	202,840	26,100	7.77
+| Year | Total Orders | Unique Clients | Order Frequency |
+| ---- | ------------ | -------------- | --------------- |
+| 2024 | 452,823      | 60,251         | 7.52            |
+| 2025 | 202,840      | 26,100         | 7.77            |
+
 
 ## MENU Analysis
-Q6: Top 5 Dishes by Order Count per Year (2024 and 2025 Separately)
+## Q6: Top 5 Dishes by Order Count per Year (2024 and 2025 Separately)
+
+```sql
 SELECT *
 FROM menu
 WHERE delivery_from BETWEEN '2024-01-01' AND '2025-12-31'
+```
    
