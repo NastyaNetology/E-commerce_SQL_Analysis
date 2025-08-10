@@ -152,7 +152,7 @@ Year	Total Orders	Unique Clients	Order Frequency
 2024	452,823	60,251	7.52
 2025	202,840	26,100	7.77
 
-## 🍽️ MENU Analysis
+## MENU Analysis
 Q6: Top 5 Dishes by Order Count per Year (2024 and 2025 Separately)
 SELECT *
 FROM menu
