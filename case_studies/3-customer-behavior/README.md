@@ -19,3 +19,39 @@ The company wants to use data to answer simple questions about their clients, es
 ## Question and Solution
 
 ## Q1: What is the total amount of money each client spends in the App?
+
+
+Relevant Table(s)
+orders — contains order_status_id, client_id, cost, and delivery date and time (status9datetime)
+order_status — contains order status definitioan (from this table I know that order_status_id = '9' means delivered stutus. 
+
+
+Step 1: Identify delivered orders 
+
+```sql
+select *
+from orders o 
+where order_status_id='9'
+
+```
+Step 2: Coun the total delivered orders in 2024 and 2025 (seperated)
+
+```sql
+
+
+```
+
+Step 3: Coun the total money from the the delivered orders in 2024 and 2025 (seperated)
+
+```sql
+
+
+```
+
+Step 3: Group by the tatal amount money by custemers in 2024 and 2025 (seperated)
+
+
+```sql
+
+
+```
