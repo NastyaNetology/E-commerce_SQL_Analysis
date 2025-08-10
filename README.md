@@ -5,4 +5,5 @@ Each case study is designed to simulate data challenges analysts might encounter
 These projects demonstrate practical SQL skills, including complex joins, aggregations, subqueries, window functions, and text-based classification.
 
 ### Table of Contents
-- [Case Study #1: Sales Performance](#case-study-1-sales-performance)](https://github.com/NastyaNetology/E-commerce_SQL_Analysis/tree/main/case_studies/1-sales-performance)
+- [Case Study #1: Sales Performance](https://github.com/NastyaNetology/E-commerce_SQL_Analysis/tree/main/case_studies/1-sales-performance)
+- 
