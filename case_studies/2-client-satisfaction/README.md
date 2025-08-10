@@ -58,12 +58,6 @@ ORDER BY avg_rating DESC
 LIMIT 5;
 ```
 
-Top 5 Highest Rated Dishes 2024
-![Top Rated Dishes](assets/top_dishes.jpg)
-
-
-Top 5 Highest Rated Dishes 2025
-![Top Rated Dishes](assets/top_dishes_2025.jpg)
 
 Step 3: Top 5 Lowest Rated Dishes (2024–2025)
 
@@ -82,12 +76,6 @@ HAVING COUNT(*) >= 5
 ORDER BY avg_rating asc 
 LIMIT 5;
 ```
-
-Top 5 Lowest Rated Dishes (2024)
-![Top Rated Dishes](assets/lowest_dishes_2024.jpg)
-
-Top 5 Lowest Rated Dishes (2025)
-![Top Rated Dishes](assets/lowest_dishes_2025.jpg)
 
 ## Q2: What are the top complaints or claims raised by clients?
 
@@ -121,15 +109,16 @@ These likely reference lookup tables like:
 Step 2: What are the top complaints or claims raised by clients?
 Understanding client complaints is essential for improving service quality, reducing churn, and prioritizing internal improvements. However, in our database, there’s no predefined column for “complaint category.” Instead, all client complaints are written as free-text comments in the claims.comment field.
 
-| Category              | Example Keywords Detected From Comments                |
-|-----------------------|--------------------------------------------------------|
-| Late Delivery         | опоздал, задерж, позже                                 |
-| Missing Item          | не положили, не было, отсутств                         |
-| Wrong Item            | не тот, перепутали                                     |
-| Undelivered Order     | не доставили, не пришел, не приехал                    |
-| Spoiled/Broken Food   | испорчен, протек, плохой                               |
-| Cold Food             | холодн, остыл                                          |
-| Other                 | Used when none of the above keywords are found         |
+| Category            | Example Keywords Detected From Comments        |
+| ------------------- | ---------------------------------------------- |
+| Late Delivery       | late, delayed, later                           |
+| Missing Item        | missing, was not included, absent              |
+| Wrong Item          | wrong item, mixed up                           |
+| Undelivered Order   | not delivered, did not arrive, never came      |
+| Spoiled/Broken Food | spoiled, leaked, bad                           |
+| Cold Food           | cold, cooled down                              |
+| Other               | Used when none of the above keywords are found |
+        |
 
 
 
@@ -151,10 +140,6 @@ WHERE created_at BETWEEN '2024-01-01' AND '2025-12-31'
 GROUP BY complaint_category
 ORDER BY total_complaints DESC;
 ```
-
-Top complaints or claims (2024-2025)
-
-![Top Rated Dishes](assets/complaint_category.jpg)
 
 ## Q2: Analyze the reasons for canceled orders
 
