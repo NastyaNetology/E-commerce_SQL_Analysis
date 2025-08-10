@@ -63,7 +63,7 @@ where order_status_id='9'and status9datetime between '2024-01-01' AND '2024-06-3
 
 #### Step 4: Group total order_count by customer for both years
 **Steps:** 
-- Use **COUNT** to calculate the total orders contributed by each customer.  
+- Use **count** to calculate the total orders contributed by each customer.  
 - Use **group by** to aggregate results by `client_id`. 
 - Use **order by** to sort the results. 
 - Use **desc** to sort from highest to lowest values.  
