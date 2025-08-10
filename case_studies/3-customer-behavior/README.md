@@ -134,5 +134,4 @@ limit 5
 |     85292 | 291,449.0 |
 
 
-### Q2: How many days has each customer visited the App?
 
