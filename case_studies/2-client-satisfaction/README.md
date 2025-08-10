@@ -118,9 +118,6 @@ Understanding client complaints is essential for improving service quality, redu
 | Spoiled/Broken Food | spoiled, leaked, bad                           |
 | Cold Food           | cold, cooled down                              |
 | Other               | Used when none of the above keywords are found |
-        |
-
-
 
 ```sql
 SELECT
