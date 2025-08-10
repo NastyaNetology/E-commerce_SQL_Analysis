@@ -7,3 +7,4 @@ These projects demonstrate practical SQL skills, including complex joins, aggreg
 ### Table of Contents
 - [Case Study #1: Sales Performance](https://github.com/NastyaNetology/E-commerce_SQL_Analysis/tree/main/case_studies/1-sales-performance)
 - [Case Study #2: Client Satisfaction](https://github.com/NastyaNetology/E-commerce_SQL_Analysis/tree/main/case_studies/2-client-satisfaction)
+- [Case Study #3: Customer Behavior](https://github.com/NastyaNetology/E-commerce_SQL_Analysis/tree/main/case_studies/3-customer-behavior)
