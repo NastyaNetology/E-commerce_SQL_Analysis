@@ -1,24 +1,28 @@
 # Case Study 4: Logistics
+The company delivers to multiple regions and cities. 
 
 ## Business Problem
+In distant zones, the cost of delivery is higher, but previously the system treated all zones the same. This led to negative unit economics in remote areas.
 
+## Goal
+- Introduce paid delivery zones with extra charges for couriers and/or customers.
+- Ensure delivery remains profitable across all geographies.
 
 ## Entity Relationship Diagram
-
+At a high level, the logistics system consists of:
+- Orders → contain delivery info, client info, payment type.
+- Clients & Addresses → provide the delivery coordinates.
+- Delivery Zones → polygons defining service regions.
+- Delivery Tariffs → pricing matrix by courier type / distance.
+- Couriers (Users) → assigned to orders, linked to contractor & courier kind.
+- Courier Tasks → factual costs of delivery (sum used as tariff payout).
 
 
 ## Questions Answered
-
-
-### Folder Structure
-
-
-## Question and Solution
-
-###  Q1: 
-
-
-#### Relevant Table(s)
+- How are tariffs connected to addresses and distances?
+- How does the system determine which delivery zone applies to an order?
+- How is courier payout calculated and stored?
+- How can we report deliveries (who delivered, when, to where, how much it cost)?
 
 
 # Delivery Tariff Schema
@@ -65,6 +69,7 @@
 
 ```
 
+## Solution
 
 ####  Step 1: Base orders (date + interval)
 - Shows order id, delivery day, and time interval. 
@@ -182,3 +187,6 @@ ORDER BY o.delivery_from, o.id
 LIMIT 100;
 
 ```
+
+
+#### Step 6: Factual courier tariff (sum of courier_tasks.cost)
