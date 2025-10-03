@@ -27,9 +27,6 @@ At a high level, the logistics system consists of:
 
 # Delivery Tariff Schema
 
-## Database Relations (ASCII Diagram)
-# Database Relations (ASCII Diagram)
-
 ```text
 +---------+          +-----------+-----------+          +---------------------+
 |  users  |          | delivery_tariff       |          |  courier_delivery    |
