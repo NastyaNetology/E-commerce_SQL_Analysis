@@ -326,3 +326,116 @@ LIMIT 100;
 4. How is the courier’s final income measured? Is the courier’s payout based on the sum of all courier_tasks.cost per order?
 5. How does customer delivery payment relate to courier payout?
 
+
+
+#### Step 9: 
+Take active orders with a real courier and delivery date.
+
+```sql
+select 
+o.id as order_id, 
+o.courier_id as courier_id, 
+o.delivery_from::date as delivery_day, 
+o.region_id as region_id
+from orders o
+left join users u on u.id = o.courier_id
+where o.enabled=1
+and o.delivery_from >= date '2024-09-01'
+and o.delivery_from <date '2025-09-01'
+order by o.delivery_from, o.id
+```
+
+#### Step 10: 
+calculate mileage for each order and day.
+1) calculate distance_km as a (y_transit_distance_m/1000.0y) and take round of sum
+2) add delivery adress
+
+```sql
+select 
+o.id as order_id, 
+o.courier_id as courier_id, 
+o.delivery_from::date as delivery_day, 
+o.region_id as region_id,
+ca.address_str as delivery_address,
+round((sum(yr.transit_distance_m) / 1000.0)::numeric, 2) as distance_km
+from orders o
+left join users u on u.id = o.courier_id
+left join yr_routes yr on yr.order_id = o.id
+left join clients_address ca  ON ca.id = o.client_address_id
+left join delivery_city dc ON dc.id = ca.city_id
+where o.enabled=1
+and o.delivery_from >= date '2024-09-01'
+and o.delivery_from <date '2025-09-01'
+group by 
+  o.id, 
+  o.courier_id, 
+  o.delivery_from, 
+  dc.title, 
+  ca.address_str
+order by o.delivery_from, o.id
+LIMIT 100;
+```
+
+
+#### Step 11: 
+Sum up the courier's mileage per day
+
+```sql
+
+--Final mileage for each courier per day
+-- Step 1: get latest delivery distance per order from yr_routes
+WITH delivery_distance_cte AS (
+select yr.order_id,
+ROUND((max(COALESCE(yr.transit_distance_m, 0)) / 1000)::numeric, 2) AS distance_km,
+max (yr.updated_at) as last_update
+FROM yr_routes yr
+WHERE yr.transit_distance_m > 0
+group by yr.order_id)
+-- Step 2: main query woth order details and joined delivery distance
+select 
+o.id as order_id, 
+o.costall as order_costall,
+ct.name as counterparty,
+u.name as courier_name,
+ck.name as courier_kind,
+o.delivery_from::date as delivery_day, 
+ca.address_str as delivery_address,
+r.regname as region,
+--Distance from the last route record
+dd.distance_km AS delivery_distance_km,
+--Triff for this order
+(select sum(courier_tasks.cost) 
+from courier_tasks 
+where courier_tasks.order_id = o.id
+group by courier_tasks.order_id) as tariff,
+--Delivery zone by coordinates
+(select title 
+from delivery_zone 
+where ST_Intersects(borders, ST_GeomFromText('POINT(' || ca.lng || ' ' || ca.lat ||')')) and delivery_zone.enable = 1 order by value limit 1) as delivery_zone
+from orders o
+left join users u on u.id = o.courier_id
+left join yr_routes yr on yr.order_id = o.id
+left join clients_address ca  ON ca.id = o.client_address_id
+left join delivery_city dc ON dc.id = ca.city_id
+left join courier_type ct on ct.id=u.courier_type_id
+left join courier_kind ck on ck.id = u.courier_kind_id
+left join regions r on o.region_id = r.id
+left join delivery_distance_cte dd on dd.order_id = o.id
+where o.enabled=1
+and o.delivery_from >= date '2025-09-01'
+and o.delivery_from <date '2025-10-01'
+group by 
+  o.id, 
+  o.delivery_from, 
+  dc.title, 
+  ca.address_str,
+  ca.lng,
+  ca.lat,
+  ct.name,
+  u.name,
+  ck.name,
+  r.regname,
+  dd.distance_km
+order by o.delivery_from, o.id
+LIMIT 100;
+```
